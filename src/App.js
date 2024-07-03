@@ -1,23 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import Container from 'react-bootstrap/Container';
+import Section from './component/Section';
+import MainNav from './component/MainNav';
+import Slider from './component/Slider';
+import PrimaryHeading from './component/headings/PrimaryHeading';
+import TaglineHeading from './component/headings/TaglineHeading';
+import Apps from './component/apps/Apps';
+
+import './assets/css/App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <MainNav/>
+      
+      <Container fluid>
+        <Slider/>
+        <Container>
+          <Section>
+            <PrimaryHeading title="Apps"/>
+            <TaglineHeading title="Enjoy our Apps"/>
+            <Apps></Apps>
+          </Section>
+        </Container>
+      </Container>
     </div>
   );
 }
