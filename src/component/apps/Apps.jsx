@@ -1,31 +1,40 @@
+import { useState } from "react";
+
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
-
-function handleClick(btn){
-    alert(`${btn} button clicked`);
-}
+import EnterButton from "./EnterButton";
 
 export default function Apps(){
+    
+    const [ selectedValue , setSelectedValue ] = useState('Dynamic Data'); 
+    console.log(selectedValue);
+    function handleClick(selectedButton){ // function inside a function 
+        setSelectedValue(selectedButton)
+        console.log(selectedValue);
+    }
+    
     return (
         <Row>
             <Col xs={6} sm={4} md={3} lg={2}>
-                <Button variant="primary" onClick={handleClick}>Primary</Button>
+                <EnterButton onSelect={() => handleClick('primary')} variant='primary'>Primary</EnterButton>
             </Col>
             <Col xs={6} sm={4} md={3} lg={2}>
-                <Button variant="secondary">Secondary</Button>
+                <EnterButton onSelect={() => handleClick('secondary')} variant='secondary'>Secondary</EnterButton>
             </Col>
             <Col xs={6} sm={4} md={3} lg={2}>
-               <Button variant="success">Success</Button>
+               <EnterButton onSelect={() => handleClick('warning')} variant='warning'>Warning</EnterButton>
             </Col>
             <Col xs={6} sm={4} md={3} lg={2}>
-                <Button variant="warning">Warning</Button>
+                <EnterButton onSelect={() => handleClick('info')} variant='info'>Info</EnterButton>
             </Col>
             <Col xs={6} sm={4} md={3} lg={2}>
-                <Button variant="danger">Danger</Button>
+                <EnterButton onSelect={() => handleClick('danger')} variant='danger'>Danger</EnterButton>
             </Col>
             <Col xs={6} sm={4} md={3} lg={2}>
-                <Button variant="info">Info</Button>
+                <EnterButton onSelect={() => handleClick('dark')} variant='dark'>Dark</EnterButton>
+            </Col>
+            <Col>
+                {selectedValue}
             </Col>
         </Row>
     );
