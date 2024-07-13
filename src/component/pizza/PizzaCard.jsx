@@ -1,3 +1,8 @@
+import Row from "react-bootstrap/Row";
+import PrimaryHeading from "../typography/PrimaryHeading";
+import Footer from "./Footer";
+import PizzaInfo from "./PizzaInfo";
+
 const pizzaList = [
   {
     name: "Margherita",
@@ -68,3 +73,26 @@ const pizzaList = [
     soldOut: true,
   },
 ];
+
+export default function PizzaCard() {
+  const pizzas = pizzaList;
+  const pizzaNum = pizzas.length;
+
+  return (
+    <div className="border-bottom border-light border-2">
+      <PrimaryHeading>The Pizza Club</PrimaryHeading>
+      <Row>
+        {/* {pizzaNum > 0 &&
+          pizzaList.map((pizza) => (
+            <PizzaInfo data={pizza} key={pizza.name}></PizzaInfo>
+          ))} */}
+        {pizzaNum > 0
+          ? pizzaList.map((pizza) => (
+              <PizzaInfo data={pizza} key={pizza.name}></PizzaInfo>
+            ))
+          : null}
+      </Row>
+      <Footer />
+    </div>
+  );
+}
