@@ -6,3 +6,20 @@
 }
 .stepModalBtn {
 }
+
+span.stepNum {
+  background-color: #adb5bd;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+span.stepNum.active {
+  background-color: #0d6efd;
+}
